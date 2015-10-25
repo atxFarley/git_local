@@ -7,8 +7,7 @@
  * # MainCtrl
  * Controller of the yoAmyfarleyApp
  */
-angular.module('amyFarleyApp')
-  .controller('MainCtrl', function () {
+amyFarleyControllers.controller('MainCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

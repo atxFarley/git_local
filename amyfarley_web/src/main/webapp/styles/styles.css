@@ -1,186 +1,205 @@
 /* Global */
 body {
-	background-color:#FFFFFF;
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-	font-size:13px;
-	margin-bottom:0;
-	color:#333;
+    background-color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:13px;
+    margin-bottom:0;
+    color:#333;
 }
 a {
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-	font-size:13px;
-	color:#FF9900;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:13px;
+    color:#FF9900;
 }
 a:hover { 
-	text-decoration:none; 
+    text-decoration:none; 
+}
+.amyFarleyHeaderLink {
+    color:#FF9900;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:30px;
+    font-weight:normal; 
+    margin:10px 0 0 7px;
+    padding:0;
 }
 p {
-	color:#333;
+    color:#333;
 }
 blockquote { 
-	border:1px solid #DDD;
-	background-color:#f2f2f2;
-	color:#333;
-	padding:12px 5px;
+    border:1px solid #DDD;
+    background-color:#f2f2f2;
+    color:#333;
+    padding:12px 5px;
 }
 code { 
-	border:1px solid #DDD;
-	background-color:#F2F2F2;
-	padding:12px 5px;
-	font-family:"Courier New", Courier, monospace;
-	font-size:14px;
-	margin:0 0 0 8.5%;
-	letter-spacing:+1px;
+    border:1px solid #DDD;
+    background-color:#F2F2F2;
+    padding:12px 5px;
+    font-family:"Courier New", Courier, monospace;
+    font-size:14px;
+    margin:0 0 0 8.5%;
+    letter-spacing:+1px;
 }
 /* Main layout */
 div#container {
-	margin-left:auto;
-	margin-right:auto;
-	width:700px;
-	background-color:#FFFFFF;
+    margin-left:auto;
+    margin-right:auto;
+    width:700px;
+    background-color:#FFFFFF;
 }
 
 /* Header and nav */
 div#header {
-	height:50px;
-	width:700px;
-	clear:both;
-	padding:0 0 20px 0;
+    height:50px;
+    width:700px;
+    clear:both;
+    padding:0 0 20px 0;
 }
 div#header h1 {
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-	color:#333;
-	margin:0;
-	float:left;
-	font-weight:normal;
-	padding:21px 0 0 17px;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    color:#333;
+    margin:0;
+    float:left;
+    font-weight:normal;
+    padding:21px 0 0 17px;
 }
 div#header h2 {
-	font-family:Georgia, "Times New Roman", Times, serif;
-	color:#333;
-	margin:0;
-	float:left;
-	font-size:11px;
-	font-weight:normal;
-	padding:29px 0 0 12px;
+    font-family:Georgia, "Times New Roman", Times, serif;
+    color:#333;
+    margin:0;
+    float:left;
+    font-size:11px;
+    font-weight:normal;
+    padding:29px 0 0 12px;
 }
 span.o { color:#FF9900; }
 span.db { color:#333333; }
 div#nav ul {
-	list-style-type:none;
-	width:700px;
-	margin:0;
-	padding:8px 0px 10px 10px;
-	height:25px;
-	background-color:#333;
+    list-style-type:none;
+    width:700px;
+    margin:0;
+    padding:8px 0px 10px 10px;
+    height:25px;
+    background-color:#333;
 }
 div#nav ul li {
-	display:inline;
+    display:inline;
 }
 div#nav ul li a {
-	display:block;
-	padding:5px 7px 5px 7px;
-	float:left;
-	font-family:Arial, Helvetica, sans-serif;
-	font-weight:bold;
-	color:#FFF;
-	text-decoration:none;
-	font-size:12px;
+    display:block;
+    padding:5px 7px 5px 7px;
+    float:left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    color:#FFF;
+    text-decoration:none;
+    font-size:12px;
 }
 div#nav ul li a:hover {
-	background-color:#FF9900;
+    background-color:#FF9900;
 }
 
 /* Content */
 .clr { clear:both; }
 div#content {
-	width:700px;
+    width:700px;
 }
 div#main {
-	float:left;
-	width:470px;
+    float:left;
+    margin-left: 0px;
+    margin-right: 471px;
+    width:470px;
+    padding-top:8px;
+    text-align:left;
+    overflow: hidden;
 }
 div#main h1 {
-	margin:10px 0 0 7px;
-	padding:0;
-	width:100%;
-	text-align:left;
-	font-size:25px;
-	color:#333;
-	border-bottom:1px dotted #333;
-	font-weight:normal;
+    margin:10px 0 0 7px;
+    padding:0;
+    width:100%;
+    text-align:left;
+    font-size:25px;
+    color:#333;
+    border-bottom:1px dotted #333;
+    font-weight:normal;
+
 }
 div#main h2 { 
-	font-size:20px;
-	margin:0 0 0 10px;
-	font-weight:normal;
+    font-size:20px;
+    margin:0 0 0 10px;
+    font-weight:normal;
+
 }
 div#main p {
-	font-size:13px;
-	color:#333;
-	margin:9px 0 8px 9px;
-	padding:0;
+    font-size:13px;
+    color:#333;
+    margin:9px 0 8px 9px;
+    padding:0;
+
 }
 div#main a { 
-	font-weight:bold; 
+    font-weight:bold; 
+
 }
 
 /* Sidebar */
 div#sidebar {
-	float:right;
-	width:213px;
-	padding-top:5px;
+    float: right;
+overflow: hidden;
+    width:213px;
+    margin-top: 0px;
+    padding-top:5px;
 }
 div#sidebar a { 
-	color:#333;
+    color:#333;
 }
 div#sidebar a:hover {
-	color:#FF6600;
+    color:#FF6600;
 }
 div#sidebar h1 {
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-	font-size:21px;
-	color:#333333;
-	font-weight:normal;
-	text-decoration:underline;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:21px;
+    color:#333333;
+    font-weight:normal;
+    text-decoration:underline;
 }
 div#sidebar ul {
-	list-style-type:square;
-	margin:0 0 0 10px;
-	padding:0 0 0 10px;
+    list-style-type:square;
+    margin:0 0 0 10px;
+    padding:0 0 0 10px;
 }
 div#sidebar p {
-	padding:5px 0 5px 3px;
-	margin:0;
+    padding:5px 0 5px 3px;
+    margin:0;
 }
 div#sidebar form {
-	border:1px solid #ddd;
-	background-color:#F2F2F2;
-	padding:5px 2px 5px 2px;
-	margin:0;
+    border:1px solid #ddd;
+    background-color:#F2F2F2;
+    padding:5px 2px 5px 2px;
+    margin:0;
 }
 
 /* Footer */
 div#footer {
-	width:700px;
-	border-top:1px solid #333;
-	background-color:#666;
-	padding:3px 0 3px 0;
+    width:700px;
+    border-top:1px solid #333;
+    background-color:#666;
+    padding:3px 0 3px 0;
 }
 div#footer p {
-	text-align:center;
-	width:100%;
-	margin:0;
-	padding:0;
-	font-size:11px;
-	color:#FFF;
+    text-align:center;
+    width:100%;
+    margin:0;
+    padding:0;
+    font-size:11px;
+    color:#FFF;
 }
 div#footer a {
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-	font-size:11px;
-	color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:11px;
+    color:#FFFFFF;
 }
 div#footer a:hover { 
-	color:#FF9900;
-	text-decoration:none; 
+    color:#FF9900;
+    text-decoration:none; 
 }

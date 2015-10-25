@@ -1,83 +1,107 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-        <meta name="description" content="">
-            <meta name="viewport" content="width=device-width">
-                <title>Amy Farley</title>
+<!DOCTYPE html>
+<html lang="en">
+    <head>     
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        <link rel="icon" href="favicon.ico"/>
 
-                <meta charset="utf-8">
-                    <link rel="stylesheet" href="styles/main.css">
-                        <link rel="stylesheet" href="styles/styles.css" type="text/css" />
-                        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-                        <!-- build:css(.) styles/vendor.css -->
-                        <!-- bower:css -->
-                        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-                        <!-- endbower -->
-                        <!-- endbuild -->
-                        <!-- build:css(.tmp) styles/main.css -->
 
-                        <!-- endbuild -->
-                        </head>
-                        <body ng-app="amyFarleyApp">
-                            <div id="container">
-                                <div id="header">
-                                    <div id="main">
-                                        <h1>Amy Farley</h1>
-                                    </div>
-                                </div>
+        <title>Amy Farley</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/offcanvas.css" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.) styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
 
-                                <div id="content">
+        <!-- endbuild -->
+    </head>
 
-                                    <div id="sidebar">
 
-                                        <ul>
-                                            <li><a href="">day job</a></li>
-                                            widgets to linked in, widget to github
-                                            <li><a href="">moonlighting</a></li>
-                                            widget to TREC/license info
-                                            <li><a href="">greater good</a></li>
-                                            widgets to Meals on Wheels, Family Eldercare, GAzelle Foundation, 
-                                            <li><a href="">active pursuits</a></li>
-                                            widgets to gazelles, tmbra, boston marathon, pilates, barre, 
-                                            <li><a href="">travel</a></li>
-                                            <li><a href="">social</a></li>
-                                            facbook, instagram
-                                        </ul>
 
-                                        <p>&nbsp;</p>
 
-                                        <!--   <form action="index.htm" method="get">
-                                             Search:<br />
-                                             <input type="text" name="q" />
-                                             <input type="submit" value="Search" />
-                                           </form> -->
-                                    </div>
-                                    <div class="clr"></div>
-                                </div>
-                                <div id="footer">
-                                </div>
-                            </div>
+    <body ng-app="amyFarleyApp">
+        <nav class="navbar navbar-fixed-top navbar-inverse-farley">
+            <div class="container">
+                <div class="navbar-header">           
+                    <a class="navbar-brand-farley" href="#main">Amy Farley</a>
+                </div>
+                <div id="navbar-right" class="navbar-right">
+                    <br/>
+                    <a href="mailto:afarley@austin.rr.com">
+                        <img src="images/email_ccff99.png" alt="email" height="28" width="28"/>
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div><!-- /.nav-collapse -->
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
+        <div class="container">
+            <div class="row row-offcanvas row-offcanvas-right">
+                <div class="col-xs-12 col-sm-9">
+                   
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-xs-6 col-lg-4">
+                                <p>
+                                    <img src="images/Chapman_Casey_20141107_8860.jpg" alt="Photo courtesy of Casey Chapman Ross Photography" width="256" height="384" />
+                                </p>
+                            </div><!--/.col-xs-6.col-lg-4-->
+                            <div class="col-xs-6 col-lg-4" ng-view>
+                            </div><!--/.col-xs-6.col-lg-4-->
+                        </div><!--/row-->
+                    </div>
+                </div><!--/.col-xs-12.col-sm-9-->
 
-                            <!-- build:js(.) scripts/vendor.js -->
-                            <!-- bower:js -->
-                            <script src="bower_components/jquery/dist/jquery.js"></script>
-                            <script src="bower_components/angular/angular.js"></script>
-                            <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-                            <script src="bower_components/angular-animate/angular-animate.js"></script>
-                            <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-                            <script src="bower_components/angular-resource/angular-resource.js"></script>
-                            <script src="bower_components/angular-route/angular-route.js"></script>
-                            <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-                            <script src="bower_components/angular-touch/angular-touch.js"></script>
-                            <!-- endbower -->
-                            <!-- endbuild -->
+                <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+                    <div class="list-group">
+                        <a href="#about" class="list-group-item">about</a>
+                        <a href="#dayjob" class="list-group-item">day job</a>
+                        <a href="#moonlighting" class="list-group-item">moonlighting</a>
+                        <a href="#greatergood" class="list-group-item">greater good</a>
+                        <a href="#active" class="list-group-item">active pursuits</a>
+                        <a href="#travel" class="list-group-item">travel</a>
+                        <a href="#social" class="list-group-item">social</a>
+                        <!--   <form action="index.htm" method="get">
+                             Search:<br />
+                             <input type="text" name="q" />
+                             <input type="submit" value="Search" />
+                           </form> -->
 
-                            <!-- build:js({.tmp,app}) scripts/scripts.js -->
-                            <script src="scripts/app.js"></script>
-                            <script src="scripts/controllers/main.js"></script>
-                            <script src="scripts/controllers/about.js"></script>
-                            <!-- endbuild -->
+                    </div>
+                </div><!--/.sidebar-offcanvas-->
+            </div><!--/row-->
+            <hr>
 
-                        </body>
-                        </html>
+            <footer>
+                <p></p>
+            </footer> 
+        </div>
+
+        <!-- build:js(.) scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/controllers.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <!-- endbuild -->
+
+    </body>
+</html>
