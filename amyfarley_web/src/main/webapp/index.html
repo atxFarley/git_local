@@ -29,10 +29,16 @@
     <body ng-app="amyFarleyApp">
         <nav class="navbar navbar-fixed-top navbar-inverse-farley">
             <div class="container">
-                <div class="navbar-header">           
+                <div class="navbar-header">        
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <a class="navbar-brand-farley" href="#main">Amy Farley</a>
                 </div>
-                <div id="navbar-right" class="navbar-right">
+                <div id="navbar-right" class="navbar-right collapse navbar-collapse">
                     <br/>
                     <a href="mailto:afarley@austin.rr.com">
                         <img src="images/email_ccff99.png" alt="email" height="28" width="28"/>
@@ -43,7 +49,9 @@
         <div class="container">
             <div class="row row-offcanvas row-offcanvas-right">
                 <div class="col-xs-12 col-sm-9">
-                   
+                    <p class="pull-right visible-xs">
+                        <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+                    </p>
                     <div class="row">
                         <div class="row">
                             <div class="col-xs-6 col-lg-4">
