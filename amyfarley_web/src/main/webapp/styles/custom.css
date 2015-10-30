@@ -1,0 +1,196 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 26, 2015, 7:44:02 AM
+    Author     : Amy
+*/
+
+.navbar-brand-farley {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 36px;
+    line-height: 44px;
+}
+.navbar-brand-farley:hover,
+.navbar-brand-farley:focus {
+    text-decoration: none;
+}
+.navbar-brand-farley > img {
+    display: block;
+}
+
+.navbar-inverse-farley {
+    background-color: #999999;
+    border-color: #999999;
+
+}
+.navbar-inverse-farley .navbar-brand-farley {
+    color: #99ff00;
+}
+.navbar-inverse-farley .navbar-brand-farley:hover,
+.navbar-inverse-farley .navbar-brand-farley:focus {
+    color: #ccff99;
+    background-color: transparent;
+}
+.navbar-inverse-farley .navbar-text {
+    color: #9d9d9d;
+}
+.navbar-inverse-farley .navbar-nav > li > a {
+    color: #9d9d9d;
+}
+.navbar-inverse-farley .navbar-nav > li > a:hover,
+.navbar-inverse-farley .navbar-nav > li > a:focus {
+    color: #fff;
+    background-color: transparent;
+}
+.navbar-inverse-farley .navbar-nav > .active > a,
+.navbar-inverse-farley .navbar-nav > .active > a:hover,
+.navbar-inverse-farley .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #080808;
+}
+.navbar-inverse-farley .navbar-nav > .disabled > a,
+.navbar-inverse-farley .navbar-nav > .disabled > a:hover,
+.navbar-inverse-farley .navbar-nav > .disabled > a:focus {
+    color: #444;
+    background-color: transparent;
+}
+.navbar-inverse-farley .navbar-toggle {
+    border-color: #333;
+}
+.navbar-inverse-farley .navbar-toggle:hover,
+.navbar-inverse-farley .navbar-toggle:focus {
+    background-color: #333;
+}
+.navbar-inverse-farley .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+.navbar-inverse-farley .navbar-collapse,
+.navbar-inverse-farley .navbar-form {
+    border-color: #101010;
+}
+.navbar-inverse-farley .navbar-nav > .open > a,
+.navbar-inverse-farley .navbar-nav > .open > a:hover,
+.navbar-inverse-farley .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: #080808;
+}
+@media (max-width: 767px) {
+    .navbar-inverse-farley .navbar-nav .open .dropdown-menu > .dropdown-header {
+        border-color: #080808;
+    }
+    .navbar-inverse-farley .navbar-nav .open .dropdown-menu .divider {
+        background-color: #080808;
+    }
+    .navbar-inverse-farley .navbar-nav .open .dropdown-menu > li > a {
+        color: #9d9d9d;
+    }
+    .navbar-inverse-farley .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-inverse-farley .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #fff;
+        background-color: transparent;
+    }
+    .navbar-inverse-farley .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-inverse-farley .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-inverse-farley .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #fff;
+        background-color: #080808;
+    }
+    .navbar-inverse-farley .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-inverse-farley .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-inverse-farley .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #444;
+        background-color: transparent;
+    }
+}
+.navbar-inverse-farley .navbar-link {
+    color: #9d9d9d;
+}
+.navbar-inverse-farley .navbar-link:hover {
+    color: #fff;
+}
+.navbar-inverse-farley .btn-link {
+    color: #9d9d9d;
+}
+.navbar-inverse-farley .btn-link:hover,
+.navbar-inverse-farley .btn-link:focus {
+    color: #fff;
+}
+.navbar-inverse-farley .btn-link[disabled]:hover,
+fieldset[disabled] .navbar-inverse-farley .btn-link:hover,
+.navbar-inverse-farley .btn-link[disabled]:focus,
+fieldset[disabled] .navbar-inverse-farley .btn-link:focus {
+    color: #444;
+}
+
+
+.btn-primary-farley {
+    color: #444;
+    background-color: #ccff99;
+    border-color: #99ff00;
+}
+.btn-primary-farley:focus,
+.btn-primary-farley.focus {
+    color: #444;
+    background-color: #ccff99;
+    border-color: #99ff00;
+}
+.btn-primary-farley:hover {
+    color: #fff;
+    background-color: #99ff00;
+    border-color: #99ff00;
+}
+.btn-primary-farley:active,
+.btn-primary-farley.active,
+.open > .dropdown-toggle.btn-primary-farley {
+    color: #444;
+    background-color: #ccff99;
+    border-color: #99ff00;
+}
+.btn-primary-farley:active:hover,
+.btn-primary-farley.active:hover,
+.open > .dropdown-toggle.btn-primary-farley:hover,
+.btn-primary-farley:active:focus,
+.btn-primary-farley.active:focus,
+.open > .dropdown-toggle.btn-primary-farley:focus,
+.btn-primary-farley:active.focus,
+.btn-primary-farley.active.focus,
+.open > .dropdown-toggle.btn-primary-farley.focus {
+    color: #444;
+    background-color: #ccff99;
+    border-color: #99ff00;
+}
+.btn-primary-farley:active,
+.btn-primary-farley.active,
+.open > .dropdown-toggle.btn-primary-farley {
+    background-image: none;
+}
+.btn-primary-farley.disabled,
+.btn-primary-farley[disabled],
+fieldset[disabled] .btn-primary-farley,
+.btn-primary-farley.disabled:hover,
+.btn-primary-farley[disabled]:hover,
+fieldset[disabled] .btn-primary-farley:hover,
+.btn-primary-farley.disabled:focus,
+.btn-primary-farley[disabled]:focus,
+fieldset[disabled] .btn-primary-farley:focus,
+.btn-primary-farley.disabled.focus,
+.btn-primary-farley[disabled].focus,
+fieldset[disabled] .btn-primary-farley.focus,
+.btn-primary-farley.disabled:active,
+.btn-primary-farley[disabled]:active,
+fieldset[disabled] .btn-primary-farley:active,
+.btn-primary-farley.disabled.active,
+.btn-primary-farley[disabled].active,
+fieldset[disabled] .btn-primary-farley.active {
+    background-color: #ccff99;
+    border-color: #99ff00;
+}
+.btn-primary-farley .badge {
+    color: #99ff00;
+    background-color: #fff;
+}

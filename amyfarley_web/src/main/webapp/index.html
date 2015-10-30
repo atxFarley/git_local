@@ -8,24 +8,20 @@
         <meta name="description" content=""/>
         <meta name="author" content=""/>
         <link rel="icon" href="favicon.ico"/>
-
-
         <title>Amy Farley</title>
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/offcanvas.css" />
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css(.) styles/vendor.css -->
-        <!-- bower:css -->
-        <!-- endbower -->
-        <!-- endbuild -->
-        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="styles/offcanvas.css" />    
+        <link rel="stylesheet" href="styles/custom.css" />  
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="styles/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="styles/ie-emulation-modes-warning.js"></script>
 
-        <!-- endbuild -->
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
-
-
-
-
     <body ng-app="amyFarleyApp">
         <nav class="navbar navbar-fixed-top navbar-inverse-farley">
             <div class="container">
@@ -38,11 +34,18 @@
                     </button>
                     <a class="navbar-brand-farley" href="#main">Amy Farley</a>
                 </div>
-                <div id="navbar-right" class="navbar-right collapse navbar-collapse">
-                    <br/>
-                    <a href="mailto:afarley@austin.rr.com">
-                        <img src="images/email_ccff99.png" alt="email" height="28" width="28"/>
-                    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                <div id="navbar" class="collapse navbar-collapse navbar-right ">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="mailto:afarley@austin.rr.com">
+                                <img src="images/email_ccff99.png" alt="email" height="28" width="28"/> 
+                            </a>
+                        </li>
+                    </ul>
                 </div><!-- /.nav-collapse -->
             </div><!-- /.container -->
         </nav><!-- /.navbar -->
@@ -50,66 +53,57 @@
             <div class="row row-offcanvas row-offcanvas-right">
                 <div class="col-xs-12 col-sm-9">
                     <p class="pull-right visible-xs">
-                        <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+                        <button type="button" class="btn btn-primary-farley btn-xs" data-toggle="offcanvas">Toggle nav</button>
                     </p>
+                    <!--  <div class="jumbotron"></div> -->
                     <div class="row">
-                        <div class="row">
-                            <div class="col-xs-6 col-lg-4">
-                                <p>
-                                    <img src="images/Chapman_Casey_20141107_8860.jpg" alt="Photo courtesy of Casey Chapman Ross Photography" width="256" height="384" />
-                                </p>
-                            </div><!--/.col-xs-6.col-lg-4-->
-                            <div class="col-xs-6 col-lg-4" ng-view>
-                            </div><!--/.col-xs-6.col-lg-4-->
-                        </div><!--/row-->
-                    </div>
+                        <div class="col-xs-6 col-lg-4">
+                            <p>
+                                <img src="images/Chapman_Casey_20141107_8860.jpg" alt="Photo courtesy of Casey Chapman Ross Photography" width="256" height="384" />
+                            </p>
+                        </div><!--/.col-xs-6.col-lg-4-->
+                        <div class="col-xs-6 col-lg-4" ng-view>
+                        </div><!--/.col-xs-6.col-lg-4-->
+                    </div><!--/row-->
                 </div><!--/.col-xs-12.col-sm-9-->
-
                 <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
                     <div class="list-group">
-                        <a href="#about" class="list-group-item">about</a>
+                        <a href="#main" class="list-group-item">main</a>
                         <a href="#dayjob" class="list-group-item">day job</a>
                         <a href="#moonlighting" class="list-group-item">moonlighting</a>
                         <a href="#greatergood" class="list-group-item">greater good</a>
                         <a href="#active" class="list-group-item">active pursuits</a>
                         <a href="#travel" class="list-group-item">travel</a>
                         <a href="#social" class="list-group-item">social</a>
-                        <!--   <form action="index.htm" method="get">
-                             Search:<br />
-                             <input type="text" name="q" />
-                             <input type="submit" value="Search" />
-                           </form> -->
-
                     </div>
                 </div><!--/.sidebar-offcanvas-->
             </div><!--/row-->
+            <br/>
+            <br/>
             <hr>
-
             <footer>
                 <p></p>
             </footer> 
         </div>
 
-        <!-- build:js(.) scripts/vendor.js -->
-        <!-- bower:js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <script src="bower_components/angular-animate/angular-animate.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="bower_components/angular-resource/angular-resource.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="bower_components/angular-touch/angular-touch.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="styles/offcanvas.js"></script>
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/controllers.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
-        <!-- endbuild -->
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="styles/ie10-viewport-bug-workaround.js"></script>
 
     </body>
 </html>
