@@ -16,7 +16,8 @@ var amyFarleyApp = angular
             'ngRoute',
             'ngSanitize',
             'ngTouch',
-            'amyFarleyControllers'
+            'amyFarleyControllers',
+            'amyFarleyServices'
         ]);
 
 amyFarleyApp.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
@@ -29,40 +30,50 @@ amyFarleyApp.config(['$routeProvider', '$httpProvider', function ($routeProvider
                     controller: 'MainCtrl',
                     controllerAs: 'main'
                 })
+                .when('/main', {
+                    templateUrl: 'views/main.html',
+                    controller: 'MainCtrl',
+                    controllerAs: 'main'
+                })
                 .when('/about', {
                     templateUrl: 'views/about.html',
-                    controller: 'AboutCtrl',
-                    controllerAs: 'about'
+                    controller: 'MainCtrl',
+                    controllerAs: 'main'
                 })
                 .when('/dayjob', {
                     templateUrl: 'views/dayjob.html',
-                    controller: 'AboutCtrl',
-                    controllerAs: 'about'
+                    controller: 'MainCtrl',
+                    controllerAs: 'main'
                 })
                 .when('/moonlighting', {
                     templateUrl: 'views/moonlighting.html',
-                    controller: 'AboutCtrl',
-                    controllerAs: 'about'
+                    controller: 'MainCtrl',
+                    controllerAs: 'main'
                 })
                 .when('/greatergood', {
                     templateUrl: 'views/greatergood.html',
-                    controller: 'AboutCtrl',
-                    controllerAs: 'about'
+                    controller: 'MainCtrl',
+                    controllerAs: 'main'
                 })
                 .when('/active', {
                     templateUrl: 'views/active.html',
-                    controller: 'AboutCtrl',
-                    controllerAs: 'about'
+                    controller: 'MainCtrl',
+                    controllerAs: 'main'
                 })
                 .when('/travel', {
                     templateUrl: 'views/travel.html',
-                    controller: 'AboutCtrl',
-                    controllerAs: 'about'
+                    controller: 'MainCtrl',
+                    controllerAs: 'main'
                 })
                 .when('/social', {
                     templateUrl: 'views/social.html',
-                    controller: 'AboutCtrl',
-                    controllerAs: 'about'
+                    controller: 'MainCtrl',
+                    controllerAs: 'main'
+                })
+                .when('/guest', {
+                    templateUrl: 'views/guestbook.html',
+                    controller: 'MainCtrl',
+                    controllerAs: 'main'
                 })
                 .otherwise({
                     redirectTo: '/'

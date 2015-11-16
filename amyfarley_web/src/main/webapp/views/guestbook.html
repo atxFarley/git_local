@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Guest Message</h2>
+
+    <!-- Todos input -->
+    <form role="form" ng-submit="addGuestMessage()">
+        <div class="row">
+            <div class="input-group">
+                <textarea id="message" ng-model="guestMessage.message" rows="3" cols="60" class="form-control"  placeholder="Leave a message"></textarea>
+                <br/>
+                <!-- <input type="text" id="inputLastName" ng-model="user.lastName" placeholder="Last name"/> -->
+                <input type="text" id="guestEmail" ng-model="guestMessage.guestEmail" class="form-control" placeholder="Email"/>
+                <br/>
+                <input type="text" id="guest" ng-model="guestMessage.guest" class="form-control" placeholder="Name"/>
+            </div>
+            <br/>
+            <span class="input-group-btn">
+                <input type="submit" class="btn btn-primary-farley" value="Add Meessage">
+            </span>
+            <input type="hidden" id="guestBook" ng-model="guestMessage.bookName" value="default"/>
+
+
+
+        </div>
+    </form>
+
+    <!-- Todos list -->
+    <!--  <p class="form-group" ng-repeat="todo in todos">
+          <input type="text" ng-model="todo" class="form-control">
+      </p> -->
+</div>
+
+
+
