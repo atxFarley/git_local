@@ -54,18 +54,20 @@ public class GuestMessage {
      * Takes all important fields
    *
      */
-    public GuestMessage(String bookName, String message, String email) {
+    public GuestMessage(String bookName, String message, String email, String guest) {
         this(bookName, message);
         this.guestEmail = email;
+        this.guest = guest;
     }
 
     /**
      * Takes all important fields
    *
      */
-    public GuestMessage(String bookName, String message, String email, float latitude, float longitude) {
+    public GuestMessage(String bookName, String message, String email, String guest, float latitude, float longitude) {
         this(bookName, message);
         this.guestEmail = email;
+        this.guest = guest;
         this.guestLocation = new GeoPt(latitude, longitude);
     }
 

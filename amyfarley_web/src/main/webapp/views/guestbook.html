@@ -2,7 +2,7 @@
     <h2>Guest Message</h2>
 
     <!-- Todos input -->
-    <form role="form" ng-submit="addGuestMessage()">
+    <form role="form" ng-controller="AddGuestMessageCtrl" ng-submit="addGuestMessage()">
         <div class="row">
             <div class="input-group">
                 <textarea id="message" ng-model="guestMessage.message" rows="3" cols="60" class="form-control"  placeholder="Leave a message"></textarea>
@@ -14,12 +14,9 @@
             </div>
             <br/>
             <span class="input-group-btn">
-                <input type="submit" class="btn btn-primary-farley" value="Add Meessage">
+                <input type="submit" class="btn btn-primary-farley" value="Add Message">
             </span>
             <input type="hidden" id="guestBook" ng-model="guestMessage.bookName" value="default"/>
-
-
-
         </div>
     </form>
 
@@ -27,6 +24,30 @@
     <!--  <p class="form-group" ng-repeat="todo in todos">
           <input type="text" ng-model="todo" class="form-control">
       </p> -->
+    <div ng-controller="MainCtrl" ng-init="getSampleMessage()">
+        <table>
+            <thead>
+                <tr>
+                    <th style="min-width: 80px;">Sample Message</th>
+                    <th style="min-width: 80px;">Sample Message Email</th>
+                    <th style="width:20px;">Sample Guest</th>
+                    <th style="width:20px;">Created Date</th>
+                    <th style="width:20px;">Latitude</th>
+                    <th style="width:20px;">Longitude</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ sampleMessage.message}}</td>
+                    <td>{{ sampleMessage.guestEmail}}</td>
+                    <td>{{ sampleMessage.guest}}</td>
+                    <td>{{ sampleMessage.createdDate}}</td>
+                    <td>{{ sampleMessage.guestLocation.latitude}}</td>
+                    <td>{{ sampleMessage.guestLocation.longitude}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
