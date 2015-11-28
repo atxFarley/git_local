@@ -28,8 +28,7 @@ public class GuestMessage {
     private String guestEmail;
     private String guest;
     private String message;
-    @Index
-    private final Date createdDate;
+    @Index private  Date createdDate;
     private GeoPt guestLocation;
 
     /**
