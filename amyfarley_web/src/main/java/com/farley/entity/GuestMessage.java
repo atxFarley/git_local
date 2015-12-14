@@ -5,6 +5,7 @@
  */
 package com.farley.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.appengine.api.datastore.GeoPt;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
@@ -28,7 +29,8 @@ public class GuestMessage {
     private String guestEmail;
     private String guest;
     private String message;
-    @Index private  Date createdDate;
+    @Index
+    private Date createdDate;
     private GeoPt guestLocation;
 
     /**
@@ -51,7 +53,7 @@ public class GuestMessage {
 
     /**
      * Takes all important fields
-   *
+     *
      */
     public GuestMessage(String bookName, String message, String email, String guest) {
         this(bookName, message);
@@ -61,7 +63,7 @@ public class GuestMessage {
 
     /**
      * Takes all important fields
-   *
+     *
      */
     public GuestMessage(String bookName, String message, String email, String guest, float latitude, float longitude) {
         this(bookName, message);
@@ -73,6 +75,7 @@ public class GuestMessage {
     /**
      * @return the guestBook
      */
+    @JsonIgnore
     public Key<GuestBook> getGuestBook() {
         return guestBook;
     }
@@ -80,6 +83,7 @@ public class GuestMessage {
     /**
      * @param guestBook the guestBook to set
      */
+    @JsonIgnore
     public void setGuestBook(Key<GuestBook> guestBook) {
         this.guestBook = guestBook;
     }

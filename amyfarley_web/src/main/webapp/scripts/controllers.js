@@ -13,7 +13,8 @@ amyFarleyControllers.controller('MainCtrl', function ($scope, $http) {
         //alert("getSampleMessage()");
         $http({
             method: 'GET',
-            url: 'sign'
+            url: '/rest/guestbook/sample'
+                    //url: 'sign'
         }).success(function (data, status, headers, config) {
             $scope.sampleMessage = data;
         }).error(function (data, status, headers, config) {
@@ -25,8 +26,8 @@ amyFarleyControllers.controller('MainCtrl', function ($scope, $http) {
 
 });
 
-amyFarleyControllers.controller('AddGuestMessageCtrl', ['$scope', '$http',  '$location',
-    function ($scope, $http,  $location) {
+amyFarleyControllers.controller('AddGuestMessageCtrl', ['$scope', '$http', '$location',
+    function ($scope, $http, $location) {
 
         /* callback for ng-click 'addGuestMessage': */
         $scope.addGuestMessage = function () {

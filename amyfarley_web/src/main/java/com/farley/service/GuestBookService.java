@@ -14,7 +14,7 @@ import com.farley.entity.GuestMessage;
 public class GuestBookService {
     
     public GuestMessage getSampleGuest(){
-        GuestMessage message = new GuestMessage("default", "Hello World", "test@test.com", "Testing Tester", 30.2746698f, -97.7425392f);
+        GuestMessage message = new GuestMessage("default", "Hello Happy People", "test@test.com", "Testing Tester", 30.2746698f, -97.7425392f);
         return message;
     }
     
