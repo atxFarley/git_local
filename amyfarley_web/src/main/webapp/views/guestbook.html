@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" ng-controller="GuestMessageCtrl">
     <h2>Guest Message</h2>
 
     <!-- Todos input -->
-    <form role="form" ng-controller="AddGuestMessageCtrl" ng-submit="addGuestMessage()">
+    <form role="form"  ng-submit="addGuestMessage()">
         <div class="row">
             <div class="input-group">
                 <textarea id="message" ng-model="guestMessage.message" rows="3" cols="60" class="form-control"  placeholder="Leave a message"></textarea>
@@ -24,27 +24,28 @@
     <!--  <p class="form-group" ng-repeat="todo in todos">
           <input type="text" ng-model="todo" class="form-control">
       </p> -->
-    <div ng-controller="MainCtrl" ng-init="getSampleMessage()">
-        <table>
+    <div>
+        <table border="0" cellspacing="5" cellpadding="5">
             <thead>
                 <tr>
-                    <th style="min-width: 80px;">Sample Message</th>
-                    <th style="min-width: 80px;">Sample Message Email</th>
-                    <th style="width:20px;">Sample Guest</th>
-                    <th style="width:20px;">Created Date</th>
+                    <th style="min-width: 80px;">Message</th>
+                    <th style="min-width: 80px;">Email</th>
+                    <th style="width:20px;">Guest</th>
+                    <th style="width:20px;">Created</th>
                     <th style="width:20px;">Latitude</th>
                     <th style="width:20px;">Longitude</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>{{ sampleMessage.message}}</td>
-                    <td>{{ sampleMessage.guestEmail}}</td>
-                    <td>{{ sampleMessage.guest}}</td>
-                    <td>{{ sampleMessage.createdDate}}</td>
-                    <td>{{ sampleMessage.guestLocation.latitude}}</td>
-                    <td>{{ sampleMessage.guestLocation.longitude}}</td>
+                <tr ng-repeat="guestMessage in guestMessages">
+                    <td>{{ guestMessage.message }}</td>
+                    <td>{{ guestMessage.guestEmail }}</td>
+                    <td>{{ guestMessage.guest }}</td>
+                    <td>{{ guestMessage.createdDate }}</td>
+                    <td>{{ guestMessage.guestLocation.latitude }}</td>
+                    <td>{{ guestMessage.guestLocation.longitude }}</td>
                 </tr>
+
             </tbody>
         </table>
     </div>

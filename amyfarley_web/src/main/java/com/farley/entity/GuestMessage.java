@@ -5,7 +5,7 @@
  */
 package com.farley.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.appengine.api.datastore.GeoPt;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
@@ -13,6 +13,7 @@ import com.googlecode.objectify.annotation.Parent;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Entity;
 import java.util.Date;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *

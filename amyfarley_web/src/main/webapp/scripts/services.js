@@ -4,13 +4,15 @@ var baseUrl = 'http://localhost\\:8080';
 
 amyFarleyServices.factory('GuestMessagesFactory', function ($resource) {
     //alert("inside ");
-    // return $resource(baseUrl + '/rest/json/sign', {}, {
-      //  query: { method: 'GET', isArray: false },
-     //  create: { method: 'POST' }
-   // })
-    
+    return $resource('/rest/guestbook/list', {}, {
+        query: {method: 'GET', isArray: true}
+        //  create: { method: 'POST' }
+    });
 
- 
+
+
+
+
 });
 
 
