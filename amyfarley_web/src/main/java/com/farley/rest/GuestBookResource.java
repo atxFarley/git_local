@@ -21,8 +21,12 @@ import com.farley.service.GuestBookService;
 
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.cmd.Query;
+import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 @Path("/guestbook")
 public class GuestBookResource {
@@ -100,12 +104,14 @@ public class GuestBookResource {
     @Path("post")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createGuestMessageInJSON(GuestMessage message) {
-        System.out.println("create");
-        String result = "GuestMessage saved : " + message;
+        System.out.println("createGuestMessageInJSON(message: " + message + ")");
+
+        String result = "GuestMessage saved : " + message.toString();
 
         // Use Objectify to save the greeting and now() is used to make the call synchronously as we
         // will immediately get a new page using redirect and we want the data to be present.
         ObjectifyService.ofy().save().entity(message).now();
+        System.out.println("result: " + result);
         return Response.status(201).entity(result).build();
 
     }

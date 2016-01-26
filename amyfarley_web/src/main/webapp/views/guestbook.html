@@ -2,21 +2,26 @@
     <h2>Guest Message</h2>
 
     <!-- Todos input -->
-    <form role="form"  ng-submit="addGuestMessage()">
+    <form name="guestbookForm" role="form">
         <div class="row">
             <div class="input-group">
-                <textarea id="message" ng-model="guestMessage.message" rows="3" cols="60" class="form-control"  placeholder="Leave a message"></textarea>
+                <textarea id="message" ng-model="formMessage.message" rows="3" cols="60" class="form-control"  placeholder="Leave a message"></textarea>
                 <br/>
                 <!-- <input type="text" id="inputLastName" ng-model="user.lastName" placeholder="Last name"/> -->
-                <input type="text" id="guestEmail" ng-model="guestMessage.guestEmail" class="form-control" placeholder="Email"/>
+                <input type="text" id="guestEmail" ng-model="formMessage.guestEmail" class="form-control" placeholder="Email"/>
                 <br/>
-                <input type="text" id="guest" ng-model="guestMessage.guest" class="form-control" placeholder="Name"/>
+                <input type="text" id="guest" ng-model="formMessage.guest" class="form-control" placeholder="Name"/>
+
             </div>
             <br/>
             <span class="input-group-btn">
-                <input type="submit" class="btn btn-primary-farley" value="Add Message">
+                <button type="submit" class="btn btn-primary-farley" value="Add Message"  ng-click="addGuestMessage()" ng-disabled="guestBookForm.$invalid">
+                    Add Message
+                </button>
             </span>
-            <input type="hidden" id="guestBook" ng-model="guestMessage.bookName" value="default"/>
+            <div id="geolocation"></div>
+            <div id="mapholder"></div>
+
         </div>
     </form>
 
@@ -38,12 +43,12 @@
             </thead>
             <tbody>
                 <tr ng-repeat="guestMessage in guestMessages">
-                    <td>{{ guestMessage.message }}</td>
-                    <td>{{ guestMessage.guestEmail }}</td>
-                    <td>{{ guestMessage.guest }}</td>
-                    <td>{{ guestMessage.createdDate }}</td>
-                    <td>{{ guestMessage.guestLocation.latitude }}</td>
-                    <td>{{ guestMessage.guestLocation.longitude }}</td>
+                    <td>{{ guestMessage.message}}</td>
+                    <td>{{ guestMessage.guestEmail}}</td>
+                    <td>{{ guestMessage.guest}}</td>
+                    <td>{{ guestMessage.createdDate}}</td>
+                    <td>{{ guestMessage.guestLocation.latitude}}</td>
+                    <td>{{ guestMessage.guestLocation.longitude}}</td>
                 </tr>
 
             </tbody>
@@ -52,4 +57,46 @@
 </div>
 
 
+<script>
+
+            //  getLocation();
+            var x = document.getElementById("geolocation");
+                    function getLocation() {
+                        if (navigator.geolocation) {
+                            navigator.geolocation.getCurrentPosition(showPosition, showError);
+
+                        } else {
+                            x.innerHTML = "Geolocation is not supported by this browser.";
+                        }
+                    }
+
+            function showPosition(position) {
+                var latlon = position.coords.latitude + "," + position.coords.longitude;
+                //alert("latlon: " + latlon);
+                document.getElementById("latitude").value = position.coords.latitude;
+                document.getElementById("longitude").value = position.coords.longitude;
+                var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+                        + latlon + "&zoom=14&size=400x300&sensor=false";
+                // document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "'>";
+            }
+
+            function showError(error) {
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                        x.innerHTML = "User denied the request for Geolocation."
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        x.innerHTML = "Location information is unavailable."
+                        break;
+                    case error.TIMEOUT:
+                        x.innerHTML = "The request to get user location timed out."
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        x.innerHTML = "An unknown error occurred."
+                        break;
+                }
+            }
+
+
+</script>
 

@@ -22,7 +22,7 @@ import com.google.gson.Gson;
 
 import com.googlecode.objectify.ObjectifyService;
 import java.io.BufferedReader;
-import java.io.PrintWriter;
+import java.math.BigDecimal;
 import javax.servlet.ServletException;
 
 /**
@@ -37,8 +37,7 @@ public class GuestBookServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         GuestBookService service = new GuestBookService();
         GuestMessage sampleMessage = service.getSampleGuest();
         //Track track = new Track();
@@ -70,7 +69,9 @@ public class GuestBookServlet extends HttpServlet {
         JSONParser parser = new JSONParser();
         JSONObject joMsg = null;
         try {
+            System.out.println(sb.toString());
             joMsg = (JSONObject) parser.parse(sb.toString());
+            System.out.println("joMsg: " + joMsg);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -79,16 +80,15 @@ public class GuestBookServlet extends HttpServlet {
         String message = (String) joMsg.get("message");
         String guest = (String) joMsg.get("guest");
         String email = (String) joMsg.get("guestEmail");
-        float latitude = 0;
-        float longitude = 0;
+        //System.out.println("latitude: " + (String) joMsg.get("latitude"));
+        float latitude = ((Double) joMsg.get("latitude") != null) ? ((Double) joMsg.get("latitude")).floatValue() : 0;
+        float longitude = ((Double) joMsg.get("latitude") != null) ? ((Double) joMsg.get("latitude")).floatValue() : 0;
 
         guestMessage = new GuestMessage(guestbookName, message, email, guest, latitude, longitude);
 
         // Use Objectify to save the greeting and now() is used to make the call synchronously as we
         // will immediately get a new page using redirect and we want the data to be present.
         ObjectifyService.ofy().save().entity(guestMessage).now();
-
-        
 
         //resp.sendRedirect("/guestbook.jsp?guestbookName=" + guestbookName);
     }

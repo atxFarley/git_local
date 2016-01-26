@@ -12,6 +12,7 @@ import com.googlecode.objectify.annotation.Index;
 import com.googlecode.objectify.annotation.Parent;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Entity;
+import java.math.BigDecimal;
 import java.util.Date;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
@@ -157,6 +158,40 @@ public class GuestMessage {
      */
     public void setGuestEmail(String guestEmail) {
         this.guestEmail = guestEmail;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Guest: ");
+        sb.append(this.guest);
+        sb.append(", Guest Message ID: ");
+        sb.append(this.guestMessageId);
+        sb.append(", Guest Message: ");
+        sb.append(this.message);
+        sb.append(", Guest Email: ");
+        sb.append(this.guestEmail);
+        sb.append(", Guest Location: ");
+        if (this.guestLocation != null) {
+            sb.append("Lat: ").append(this.guestLocation.getLatitude()).append(", Lon: ").append(this.guestLocation.getLongitude());
+        }
+        return sb.toString();
+    }
+
+    /**
+     * @return the latitude
+     */
+    @JsonIgnore
+    public BigDecimal getLatitude() {
+        return BigDecimal.valueOf(this.guestLocation.getLatitude());
+    }
+
+    /**
+     * @return the longitude
+     */
+    @JsonIgnore
+    public BigDecimal getLongitude() {
+        return BigDecimal.valueOf(this.guestLocation.getLongitude());
     }
 
 }
