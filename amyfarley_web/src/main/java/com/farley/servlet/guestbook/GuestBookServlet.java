@@ -38,6 +38,7 @@ public class GuestBookServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("Servlet doGet()");
         GuestBookService service = new GuestBookService();
         GuestMessage sampleMessage = service.getSampleGuest();
         //Track track = new Track();
@@ -52,6 +53,7 @@ public class GuestBookServlet extends HttpServlet {
     // Process the http POST of the form
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        System.out.print("Servlet do Post");
         GuestMessage guestMessage = null;
 
         StringBuilder sb = new StringBuilder();

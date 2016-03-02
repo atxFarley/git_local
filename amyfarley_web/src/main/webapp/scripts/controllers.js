@@ -5,7 +5,6 @@
  */
 var amyFarleyControllers = angular.module('amyFarleyControllers', []);
 var baseUrl = 'http://localhost\\:8080';
-
 amyFarleyControllers.controller('MainCtrl', function ($scope, $http) {
 
     // $scope.getGuestMessages = function () {
@@ -25,7 +24,12 @@ amyFarleyControllers.controller('MainCtrl', function ($scope, $http) {
     // };
 
 });
+amyFarleyControllers.controller('MapCtrl', function ($scope, $http) {
 
+
+
+
+});
 amyFarleyControllers.controller('GuestMessageCtrl', ['$scope', '$http', 'GuestMessagesFactory', '$location',
     function ($scope, $http, GuestMessagesFactory, $location) {
 
@@ -36,11 +40,9 @@ amyFarleyControllers.controller('GuestMessageCtrl', ['$scope', '$http', 'GuestMe
         $scope.model = {myMap: undefined};
         $scope.myMarkers = [];
         $scope.guestMessage;
-
         $scope.showResult = function () {
             return $scope.error == "";
         };
-
         //$scope.mapOptions = {
         //    center: new google.maps.LatLng($scope.lat, $scope.lng),
         //    zoom: 15,
@@ -57,7 +59,6 @@ amyFarleyControllers.controller('GuestMessageCtrl', ['$scope', '$http', 'GuestMe
             //  $scope.model.myMap.setCenter(latlng);
             //  $scope.myMarkers.push(new google.maps.Marker({map: $scope.model.myMap, position: latlng}));
         };
-
         $scope.showError = function (error) {
             switch (error.code) {
                 case error.PERMISSION_DENIED:
@@ -75,7 +76,6 @@ amyFarleyControllers.controller('GuestMessageCtrl', ['$scope', '$http', 'GuestMe
             }
             $scope.$apply();
         };
-
         $scope.getLocation = function () {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition($scope.showPosition, $scope.showError);
@@ -84,14 +84,10 @@ amyFarleyControllers.controller('GuestMessageCtrl', ['$scope', '$http', 'GuestMe
                 $scope.error = "Geolocation is not supported by this browser.";
             }
         };
-
         $scope.getLocation();
-
-
-
-
         /* callback for ng-click 'addGuestMessage': */
         $scope.addGuestMessage = function () {
+            console.log("addGuestMessage()");
             //  alert("addGuestMessage()");
             $scope.formMessage.bookName = "default";
             $scope.formMessage.latitude = $scope.lat;
@@ -112,7 +108,6 @@ amyFarleyControllers.controller('GuestMessageCtrl', ['$scope', '$http', 'GuestMe
             });
             $location.path('/guest');
         };
-
         $scope.getSampleMessage = function () {
             //alert("getSampleMessage()");
             $http({
@@ -125,12 +120,128 @@ amyFarleyControllers.controller('GuestMessageCtrl', ['$scope', '$http', 'GuestMe
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
             });
+        };
+        $scope.guestMessages = GuestMessagesFactory.query();
+    }]);
 
+
+amyFarleyControllers.controller('MoonTowerCtrl', ['$scope', '$http', 'leafletData', 'leafletLegendHelpers',
+    function ($scope, $http, leafletData, leafletLegendHelpers) {
+
+        var vm = this;
+
+
+        vm.center = {
+            lat: 30.27475,
+            lng: -97.74031,
+            zoom: 12
+        };
+        vm.defaults = {
+            scrollWheelZoom: false
+        };
+        vm.markers = {
+            atx: {
+                lat: vm.center.lat,
+                lng: vm.center.lng,
+                //message: 'Austin, TX',
+                focus: true
+
+            }
+        };
+        vm.layers = {
+            baselayers: {
+                googleRoadmap: {
+                    name: 'Google Streets',
+                    layerType: 'ROADMAP',
+                    type: 'google'
+                },
+                osm: {
+                    name: 'OpenStreetMap',
+                    url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    type: 'xyz'
+
+                }
+            },
+            overlays: {
+                nationalAg: {
+                    name: 'Ag Imagery',
+                    type: 'wms',
+                    url: 'http://r.tnris.org/arcgis/services/NAIP/NAIP_2012_1M_NC/ImageServer/WMSServer',
+                    visible: false
+
+                },
+                texasOrtho: {
+                    name: 'Texas Orthoimagery',
+                    type: 'wms',
+                    url: 'http://r.tnris.org/arcgis/services/TOP/TOP_2009_50CM_NC/ImageServer/WMSServer',
+                    visible: false
+
+                }
+
+            }
         };
 
-        $scope.guestMessages = GuestMessagesFactory.query();
 
 
+
+        var geoJsonObj;
+        function onEachFeature(feature, layer) {
+            //console.log("onEachFeature");
+            //console.log(feature.properties.BUILDING_N);
+            if (feature.properties && feature.properties.BUILDING_N) {
+                layer.bindPopup(feature.properties.BUILDING_N + "<BR/>" + feature.properties.ADDRESS + "<BR/>" + "Date Built: " + feature.properties.DATE_BUILT);
+            }
+        }
+        ;
+
+
+        function filterFeatures(feature) {
+            //console.log("filterFeatures");
+            //console.log(feature.properties.BUILDING_N);
+            if (feature.properties && feature.properties.BUILDING_N) {
+                return feature.properties.BUILDING_N === "MOONLIGHT TOWERS";
+            }
+
+        }
+        ;
+
+        var moonTowerIcon = {
+            iconUrl: 'images/moon-inv.svg',
+            iconSize: [25, 25],
+            iconAnchor: [12, 0]
+                    //iconColor: 'yellow'
+        };
+        $http.get("views/maps/hl.json")
+                .success(function (data, status) {
+                    var geoJson = data;
+                    angular.extend(vm.layers.overlays, {
+                        landmarks: {
+                            name: 'Landmarks',
+                            type: 'geoJSONShape',
+                            data: geoJson,
+                            visible: true,
+                            layerOptions: {
+                                /*
+                                 style: {
+                                 color: '#00D',
+                                 fillColor: 'red',
+                                 weight: 2.0,
+                                 opacity: 0.6,
+                                 fillOpacity: 0.2
+                                 },
+                                 */
+                                pointToLayer: function (feature, latlng) {
+                                    console.log("point to layer: " + latlng);
+                                    marker = new L.marker(latlng, {icon: L.icon(moonTowerIcon)});
+                                    return marker;
+                                },
+                                onEachFeature: onEachFeature,
+                                filter: filterFeatures
+                            }
+                        }
+
+                    })
+                });
     }]);
 
 

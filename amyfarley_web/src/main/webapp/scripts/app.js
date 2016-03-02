@@ -16,6 +16,7 @@ var amyFarleyApp = angular
             'ngRoute',
             'ngSanitize',
             'ngTouch',
+            'leaflet-directive',
             'amyFarleyControllers',
             'amyFarleyServices'
         ]);
@@ -74,6 +75,16 @@ amyFarleyApp.config(['$routeProvider', '$httpProvider', function ($routeProvider
                     templateUrl: 'views/guestbook.html',
                     controller: 'MainCtrl',
                     controllerAs: 'main'
+                })
+                .when('/mapmenu', {
+                    templateUrl: 'views/maps/mapmenu.html',
+                    controller: 'MapCtrl',
+                    controllerAs: 'mapCtrl'
+                })
+                .when('/atxmoontower', {
+                    templateUrl: 'views/maps/moontowers.html',
+                    controller: 'MoonTowerCtrl',
+                    controllerAs: 'moonTowerCtrl'
                 })
                 .otherwise({
                     redirectTo: '/'

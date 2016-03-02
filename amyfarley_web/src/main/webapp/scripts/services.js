@@ -3,7 +3,7 @@ var amyFarleyServices = angular.module('amyFarleyServices', ['ngResource']);
 var baseUrl = 'http://localhost\\:8080';
 
 amyFarleyServices.factory('GuestMessagesFactory', function ($resource) {
-    //alert("inside ");
+    console.log("inside amyFarleyServices");
     return $resource('/rest/guestbook/list', {}, {
         query: {method: 'GET', isArray: true}
         //  create: { method: 'POST' }
