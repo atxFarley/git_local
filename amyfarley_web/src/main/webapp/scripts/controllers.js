@@ -245,6 +245,166 @@ amyFarleyControllers.controller('MoonTowerCtrl', ['$scope', '$http', 'leafletDat
     }]);
 
 
+amyFarleyControllers.controller('UrbanTrailsCtrl', ['$scope', '$http', 'leafletData', 'leafletLegendHelpers',
+    function ($scope, $http, leafletData, leafletLegendHelpers) {
+
+        var vm = this;
+
+
+        vm.center = {
+            lat: 30.27475,
+            lng: -97.74031,
+            zoom: 11
+        };
+        vm.defaults = {
+            scrollWheelZoom: false
+        };
+        vm.markers = {
+            atx: {
+                lat: vm.center.lat,
+                lng: vm.center.lng,
+                //message: 'Austin, TX',
+                focus: true
+
+            }
+        };
+        vm.layers = {
+            baselayers: {
+                googleRoadmap: {
+                    name: 'Google Streets',
+                    layerType: 'ROADMAP',
+                    type: 'google'
+                },
+                osm: {
+                    name: 'OpenStreetMap',
+                    url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    type: 'xyz'
+
+                }
+            },
+            overlays: {
+                nationalAg: {
+                    name: 'Ag Imagery',
+                    type: 'wms',
+                    url: 'http://r.tnris.org/arcgis/services/NAIP/NAIP_2012_1M_NC/ImageServer/WMSServer',
+                    visible: false
+
+                },
+                texasOrtho: {
+                    name: 'Texas Orthoimagery',
+                    type: 'wms',
+                    url: 'http://r.tnris.org/arcgis/services/TOP/TOP_2009_50CM_NC/ImageServer/WMSServer',
+                    visible: false
+
+                }
+
+            }
+        };
+
+
+
+
+        var geoJsonObj;
+        function onEachFeature(feature, layer) {
+            //console.log("onEachFeature");
+            //console.log(feature.properties.build_stat);
+            if (feature.properties && feature.properties.build_stat) {
+                if (feature.properties.build_stat === "PROPOSED") {
+                    /**
+                     * 
+                     * 
+                     
+                     title
+                     description
+                     marker-size
+                     marker-symbol
+                     marker-color
+                     stroke
+                     stroke-opacity
+                     stroke-width
+                     fill
+                     fill-opacity
+                     */
+                    layer.setStyle({fillColor: "red",
+                                    weight: 2,
+                                    opacity: 1,
+                                    color: 'red',
+                                    dashArray: '3',
+                                    fillOpacity: 0.7});
+                } else if (feature.properties.build_stat === "EXISTING") {
+                    layer.setStyle({ffillColor: "blue",
+                                    weight: 2,
+                                    opacity: 1,
+                                    color: 'blue',
+                                    dashArray: '0',
+                                    fillOpacity: 0.7});
+
+                } else {
+                    layer.setStyle({fillColor: "green",
+                                    weight: 2,
+                                    opacity: 1,
+                                    color: 'green',
+                                    dashArray: '1',
+                                    fillOpacity: 0.7});
+                }
+            }
+        }
+        ;
+
+
+        function filterFeatures(feature) {
+            console.log("filterFeatures");
+            //console.log(feature.properties.BUILDING_N);
+            //if (feature.properties && feature.properties.BUILDING_N) {
+            //    return feature.properties.BUILDING_N === "MOONLIGHT TOWERS";
+            //}
+
+        }
+        ;
+
+        var moonTowerIcon = {
+            iconUrl: 'images/moon-inv.svg',
+            iconSize: [25, 25],
+            iconAnchor: [12, 0]
+                    //iconColor: 'yellow'
+        };
+        $http.get("views/maps/urbanTrails.json")
+                .success(function (data, status) {
+                    var geoJson = data;
+                    angular.extend(vm.layers.overlays, {
+                        landmarks: {
+                            name: 'Urban Trails',
+                            type: 'geoJSONShape',
+                            data: geoJson,
+                            visible: true,
+                            layerOptions: {
+                                /**
+                                style: {
+                                    fillColor: "green",
+                                    weight: 2,
+                                    opacity: 1,
+                                    color: 'blue',
+                                    dashArray: '3',
+                                    fillOpacity: 0.7
+
+                                },
+                                **/
+                                //pointToLayer: function (feature, latlng) {
+                                //    console.log("point to layer: " + latlng);
+                                    //marker = new L.marker(latlng, {icon: L.icon(moonTowerIcon)});
+                                    //return marker;
+                                //},
+                                onEachFeature: onEachFeature,
+                               // filter: filterFeatures
+                            }
+                        }
+
+                    })
+                });
+    }]);
+
+
+
 
 
 

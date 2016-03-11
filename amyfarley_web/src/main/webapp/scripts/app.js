@@ -86,6 +86,11 @@ amyFarleyApp.config(['$routeProvider', '$httpProvider', function ($routeProvider
                     controller: 'MoonTowerCtrl',
                     controllerAs: 'moonTowerCtrl'
                 })
+                .when('/atxurbantrails', {
+                    templateUrl: 'views/maps/urbantrails.html',
+                    controller: 'UrbanTrailsCtrl',
+                    controllerAs: 'urbanTrailsCtrl'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });
