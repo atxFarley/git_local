@@ -268,6 +268,11 @@ amyFarleyControllers.controller('UrbanTrailsCtrl', ['$scope', '$http', 'leafletD
 
             }
         };
+        vm.legend = {
+           position: 'bottomleft',
+            colors: [ 'red', 'blue', 'green'  ],
+            labels: [ 'Proposed', 'Existing', 'Other' ]  
+        };
         vm.layers = {
             baselayers: {
                 googleRoadmap: {
