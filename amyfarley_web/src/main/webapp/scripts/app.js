@@ -46,6 +46,11 @@ amyFarleyApp.config(['$routeProvider', '$httpProvider', function ($routeProvider
                     controller: 'MainCtrl',
                     controllerAs: 'main'
                 })
+                .when('/continued', {
+                    templateUrl: 'views/continued.html',
+                    controller: 'MainCtrl',
+                    controllerAs: 'main'
+                })
                 .when('/moonlighting', {
                     templateUrl: 'views/moonlighting.html',
                     controller: 'MainCtrl',
