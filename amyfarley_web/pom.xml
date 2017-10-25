@@ -10,7 +10,7 @@
     <url>http://maven.apache.org</url>
     
     <properties>
-        <appengine.target.version>1.9.28</appengine.target.version>
+        <appengine.target.version>1.9.58</appengine.target.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jersey.version>1.19</jersey.version>
         <guice.version>3.0</guice.version>
