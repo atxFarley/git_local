@@ -79,8 +79,7 @@ amyFarleyControllers.controller('GuestMessageCtrl', ['$scope', '$http', 'GuestMe
         $scope.getLocation = function () {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition($scope.showPosition, $scope.showError);
-            }
-            else {
+            } else {
                 $scope.error = "Geolocation is not supported by this browser.";
             }
         };
@@ -186,8 +185,8 @@ amyFarleyControllers.controller('MoonTowerCtrl', ['$scope', '$http', 'leafletDat
 
         var geoJsonObj;
         function onEachFeature(feature, layer) {
-            //console.log("onEachFeature");
-            //console.log(feature.properties.BUILDING_N);
+            console.log("onEachFeature");
+                console.log(feature.properties.BUILDING_N);
             if (feature.properties && feature.properties.BUILDING_N) {
                 layer.bindPopup(feature.properties.BUILDING_N + "<BR/>" + feature.properties.ADDRESS + "<BR/>" + "Date Built: " + feature.properties.DATE_BUILT);
             }
@@ -196,8 +195,8 @@ amyFarleyControllers.controller('MoonTowerCtrl', ['$scope', '$http', 'leafletDat
 
 
         function filterFeatures(feature) {
-            //console.log("filterFeatures");
-            //console.log(feature.properties.BUILDING_N);
+            console.log("filterFeatures");
+            console.log(feature);
             if (feature.properties && feature.properties.BUILDING_N) {
                 return feature.properties.BUILDING_N === "MOONLIGHT TOWERS";
             }
@@ -213,8 +212,11 @@ amyFarleyControllers.controller('MoonTowerCtrl', ['$scope', '$http', 'leafletDat
         };
         $http.get("views/maps/hl.json")
                 .success(function (data, status) {
+                    console.log("inside building moontowers map");
                     var geoJson = data;
+                    console.log("data: " + data );
                     angular.extend(vm.layers.overlays, {
+
                         landmarks: {
                             name: 'Landmarks',
                             type: 'geoJSONShape',
@@ -269,9 +271,9 @@ amyFarleyControllers.controller('UrbanTrailsCtrl', ['$scope', '$http', 'leafletD
             }
         };
         vm.legend = {
-           position: 'bottomleft',
-            colors: [ 'red', 'blue', 'green'  ],
-            labels: [ 'Proposed', 'Existing', 'Other' ]  
+            position: 'bottomleft',
+            colors: ['red', 'blue', 'green'],
+            labels: ['Proposed', 'Existing', 'Other']
         };
         vm.layers = {
             baselayers: {
@@ -331,26 +333,26 @@ amyFarleyControllers.controller('UrbanTrailsCtrl', ['$scope', '$http', 'leafletD
                      fill-opacity
                      */
                     layer.setStyle({fillColor: "red",
-                                    weight: 2,
-                                    opacity: 1,
-                                    color: 'red',
-                                    dashArray: '3',
-                                    fillOpacity: 0.7});
+                        weight: 2,
+                        opacity: 1,
+                        color: 'red',
+                        dashArray: '3',
+                        fillOpacity: 0.7});
                 } else if (feature.properties.build_stat === "EXISTING") {
                     layer.setStyle({ffillColor: "blue",
-                                    weight: 2,
-                                    opacity: 1,
-                                    color: 'blue',
-                                    dashArray: '0',
-                                    fillOpacity: 0.7});
+                        weight: 2,
+                        opacity: 1,
+                        color: 'blue',
+                        dashArray: '0',
+                        fillOpacity: 0.7});
 
                 } else {
                     layer.setStyle({fillColor: "green",
-                                    weight: 2,
-                                    opacity: 1,
-                                    color: 'green',
-                                    dashArray: '1',
-                                    fillOpacity: 0.7});
+                        weight: 2,
+                        opacity: 1,
+                        color: 'green',
+                        dashArray: '1',
+                        fillOpacity: 0.7});
                 }
             }
         }
@@ -384,23 +386,23 @@ amyFarleyControllers.controller('UrbanTrailsCtrl', ['$scope', '$http', 'leafletD
                             visible: true,
                             layerOptions: {
                                 /**
-                                style: {
-                                    fillColor: "green",
-                                    weight: 2,
-                                    opacity: 1,
-                                    color: 'blue',
-                                    dashArray: '3',
-                                    fillOpacity: 0.7
-
-                                },
-                                **/
+                                 style: {
+                                 fillColor: "green",
+                                 weight: 2,
+                                 opacity: 1,
+                                 color: 'blue',
+                                 dashArray: '3',
+                                 fillOpacity: 0.7
+                                 
+                                 },
+                                 **/
                                 //pointToLayer: function (feature, latlng) {
                                 //    console.log("point to layer: " + latlng);
-                                    //marker = new L.marker(latlng, {icon: L.icon(moonTowerIcon)});
-                                    //return marker;
+                                //marker = new L.marker(latlng, {icon: L.icon(moonTowerIcon)});
+                                //return marker;
                                 //},
                                 onEachFeature: onEachFeature,
-                               // filter: filterFeatures
+                                // filter: filterFeatures
                             }
                         }
 
